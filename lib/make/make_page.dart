@@ -1,9 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ore_kota/common/custom_button.dart';
+import 'package:ore_kota/make/component/choice.dart';
 import 'package:ore_kota/make/component/choose_people_page.dart';
 
-class MakePage extends StatelessWidget {
+class MakePage extends StatefulWidget {
   const MakePage({Key? key}) : super(key: key);
+
+  @override
+  _MakePageState createState() => _MakePageState();
+}
+
+class _MakePageState extends State<MakePage> {
+  final myController1 = TextEditingController();
+  final myController2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -11,13 +21,37 @@ class MakePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("makePage"),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'Make',
+            TextField(
+              controller: myController1,
+              decoration: InputDecoration(
+                labelText: "タイトルを入力してください",
+              ),
+              textAlignVertical: TextAlignVertical(y: -1),
             ),
+            TextField(
+              controller: myController2,
+              decoration: InputDecoration(
+                labelText: "詳しい内容を入力してください",
+              ),
+              textAlignVertical: TextAlignVertical.bottom,
+            ),
+            Choice(),
+            Choice(),
+            Choice(),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  CustomButton(text: "作成"),
+                  SizedBox(height: 16),
+                ],
+              ),
+            )
           ],
         ),
       ),

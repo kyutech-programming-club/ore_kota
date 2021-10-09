@@ -70,12 +70,12 @@ flutter:
   fonts:
     - family: Sans
       fonts:
-        - asset: fonts/NotoSansJP-Black.ttf
-        - asset: fonts/NotoSansJP-Bold.ttf
-        - asset: fonts/NotoSansJP-Light.ttf
-        - asset: fonts/NotoSansJP-Medium.ttf
-        - asset: fonts/NotoSansJP-Regular.ttf
-        - asset: fonts/NotoSansJP-Thin.ttf
+        - asset: assets/fonts/NotoSansJP-Black.otf
+        - asset: assets/fonts/NotoSansJP-Bold.otf
+        - asset: assets/fonts/NotoSansJP-Light.otf
+        - asset: assets/fonts/NotoSansJP-Medium.otf
+        - asset: assets/fonts/NotoSansJP-Regular.otf
+        - asset: assets/fonts/NotoSansJP-Thin.otf
           style: italic
   #   - family: Trajan Pro
   #     fonts:
