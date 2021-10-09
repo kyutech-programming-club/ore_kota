@@ -26,11 +26,12 @@ class Question extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
                   questionName,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: HexColor("#191300"),
                   ),
@@ -38,7 +39,7 @@ class Question extends StatelessWidget {
                 Text(
                   "$peopleNumber人が回答",
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 16,
                     color: HexColor("#757575"),
                   ),
                 ),
@@ -48,7 +49,7 @@ class Question extends StatelessWidget {
             Text(
               description,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 16,
                 color: HexColor("#757575"),
               ),
             ),
