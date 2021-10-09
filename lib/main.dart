@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ore_kota/home_page.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:ore_kota/home/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        primaryColor: HexColor("#FFC86F")
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
