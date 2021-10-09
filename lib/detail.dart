@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ore_kota/browse_user_page.dart';
 
 class QuestionDetail extends StatelessWidget {
   const QuestionDetail({Key? key}) : super(key: key);
@@ -22,11 +21,7 @@ class QuestionDetail extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => BrowseUserPage())
-          );
-        },
+        onPressed: () {},
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
