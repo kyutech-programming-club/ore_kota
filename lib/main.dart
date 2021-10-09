@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:ore_kota/home_page.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:ore_kota/home/home_page.dart';
 
 import 'googleSignInMethod.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        primaryColor: HexColor("#FFC86F")
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
