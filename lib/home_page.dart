@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ore_kota/detail.dart';
 import 'package:ore_kota/make_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -17,6 +18,14 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Text(
               'Home',
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => QuestionDetail())
+                  );
+                },
+                child: Text("detail")
             ),
           ],
         ),
