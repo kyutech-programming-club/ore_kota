@@ -27,6 +27,12 @@ class HomePage extends StatelessWidget {
                 },
                 child: Text("detail")
             ),
+            ElevatedButton(
+                onPressed: () {
+                  print("answer");
+                },
+                child: Text("answer")
+            ),
           ],
         ),
       ),
