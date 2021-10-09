@@ -21,7 +21,7 @@ class Question extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
-        padding: EdgeInsets.only(left: 16, top: 12, right: 16, bottom: 12),
+        padding: EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 16),
         child: Column(
           children: [
             Row(
@@ -45,7 +45,7 @@ class Question extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 12),
             Text(
               description,
               style: TextStyle(
