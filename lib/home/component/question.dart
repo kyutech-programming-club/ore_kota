@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class Question extends StatelessWidget {
   const Question({
@@ -16,7 +17,7 @@ class Question extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Theme.of(context).primaryColor),
+        border: Border.all(color: Theme.of(context).primaryColor, width: 2),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
@@ -26,11 +27,31 @@ class Question extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(questionName),
-                Text("$peopleNumber人が回答")
+                Text(
+                  questionName,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: HexColor("#191300"),
+                  ),
+                ),
+                Text(
+                  "$peopleNumber人が回答",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: HexColor("#757575"),
+                  ),
+                ),
               ],
             ),
-            Text(description),
+            SizedBox(height: 8),
+            Text(
+              description,
+              style: TextStyle(
+                fontSize: 12,
+                color: HexColor("#757575"),
+              ),
+            ),
           ],
         ),
       ),
