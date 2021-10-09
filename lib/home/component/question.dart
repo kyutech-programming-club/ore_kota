@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:ore_kota/common/color.dart';
 
 class Question extends StatelessWidget {
   const Question({
@@ -33,14 +34,14 @@ class Question extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: HexColor("#191300"),
+                    color: HexColor(TextColor1),
                   ),
                 ),
                 Text(
                   "$peopleNumber人が回答",
                   style: TextStyle(
                     fontSize: 16,
-                    color: HexColor("#757575"),
+                    color: HexColor(TextColor2),
                   ),
                 ),
               ],
@@ -50,7 +51,7 @@ class Question extends StatelessWidget {
               description,
               style: TextStyle(
                 fontSize: 16,
-                color: HexColor("#757575"),
+                color: HexColor(TextColor2),
               ),
             ),
           ],
