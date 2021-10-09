@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ore_kota/detail.dart';
+import 'package:ore_kota/googleSignInMethod.dart';
 import 'package:ore_kota/make_page.dart';
 import 'package:ore_kota/answer_page.dart';
 
@@ -18,8 +19,12 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Home',
+              GoogleSignInMethod().currentUser!.uid,
             ),
+            Text(
+              GoogleSignInMethod().currentUser!.email!,
+            ),
+            Image.network(GoogleSignInMethod().currentUser!.photoURL!),
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
