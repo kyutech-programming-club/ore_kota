@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ore_kota">
+    <uses-permission android:name="android.permission.VIBRATE"/>
    <application
         android:label="ore_kota"
         android:icon="@mipmap/ic_launcher">
