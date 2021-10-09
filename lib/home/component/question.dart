@@ -34,14 +34,14 @@ class Question extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: HexColor(TextColor1),
+                    color: HexColor(TextMain),
                   ),
                 ),
                 Text(
                   "$peopleNumber人が回答",
                   style: TextStyle(
                     fontSize: 16,
-                    color: HexColor(TextColor2),
+                    color: HexColor(TextSub),
                   ),
                 ),
               ],
@@ -51,7 +51,7 @@ class Question extends StatelessWidget {
               description,
               style: TextStyle(
                 fontSize: 16,
-                color: HexColor(TextColor2),
+                color: HexColor(TextSub),
               ),
             ),
           ],
