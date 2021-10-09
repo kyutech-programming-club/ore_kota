@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ore_kota/firebase/userInfo.dart';
 import 'package:ore_kota/home/home_page.dart';
+import 'package:ore_kota/root/root_page.dart';
 
 import 'firebase/googleSignInMethod.dart';
 
@@ -22,51 +23,7 @@ class MyApp extends StatelessWidget {
         primaryColor: HexColor("#FFC86F"),
         fontFamily: "Sans",
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Google',
-            ),
-            ElevatedButton(
-              onPressed: (){
-                GoogleSignInMethod().googleSignIn();
-                UserInfo().setInfo();
-              },
-              child: Text("あああ"),)
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => HomePage())
-          );
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      home: RootPage(),
     );
   }
 }
