@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ore_kota/question/question_page.dart';
-import 'package:ore_kota/firebase/googleSignInMethod.dart';
+import 'package:ore_kota/home/component/question.dart';
 import 'package:ore_kota/make/make_page.dart';
 import 'package:ore_kota/answer/answer_page.dart';
 
@@ -14,24 +13,15 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("homePage"),
       ),
-      body: Center(
+      body: Padding(
+        padding: EdgeInsets.only(left: 16, right: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              GoogleSignInMethod().currentUser!.uid,
-            ),
-            Text(
-              GoogleSignInMethod().currentUser!.email!,
-            ),
-            Image.network(GoogleSignInMethod().currentUser!.photoURL!),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => QuestionPage())
-                  );
-                },
-                child: Text("detail")
+            Question(
+                questionName: "日程の調整",
+                peopleNumber: 3,
+                description: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
             ),
             ElevatedButton(
               onPressed: () {
