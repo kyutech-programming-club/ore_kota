@@ -1,2 +1,2 @@
-const TextColor1 = "#191300";
-const TextColor2 = "#757575";
+const TextMain = "#191300";
+const TextSub = "#757575";
