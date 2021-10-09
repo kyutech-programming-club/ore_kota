@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ore_kota/home/home_page.dart';
 
-import 'googleSignInMethod.dart';
+import 'firebase/googleSignInMethod.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

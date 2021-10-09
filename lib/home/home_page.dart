@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ore_kota/detail.dart';
-import 'package:ore_kota/googleSignInMethod.dart';
-import 'package:ore_kota/make_page.dart';
-import 'package:ore_kota/answer_page.dart';
+import 'package:ore_kota/question/question_page.dart';
+import 'package:ore_kota/firebase/googleSignInMethod.dart';
+import 'package:ore_kota/make/make_page.dart';
+import 'package:ore_kota/answer/answer_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => QuestionDetail())
+                      MaterialPageRoute(builder: (context) => QuestionPage())
                   );
                 },
                 child: Text("detail")
