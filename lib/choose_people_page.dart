@@ -29,11 +29,11 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
       ),
       body: Align(
         alignment: Alignment(0, 1),
-          child: AnimatedContainer(
-            width: size.width*0.8,
-            height: _width,
-            duration: Duration(milliseconds: 500),
-            color: Colors.orange,
+        child: AnimatedContainer(
+          width: size.width*0.8,
+          height: _width,
+          duration: Duration(milliseconds: 500),
+          color: Colors.orange,
         ),
       ),
       floatingActionButton: FloatingActionButton(onPressed: _onTap),
