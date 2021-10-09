@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ore_kota/common/custom_button.dart';
 import 'package:ore_kota/make/component/choice.dart';
 import 'package:ore_kota/make/component/choose_people_page.dart';
 
@@ -20,7 +21,8 @@ class _MakePageState extends State<MakePage> {
       appBar: AppBar(
         title: Text("makePage"),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -41,6 +43,15 @@ class _MakePageState extends State<MakePage> {
             Choice(),
             Choice(),
             Choice(),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  CustomButton(text: "作成"),
+                  SizedBox(height: 16),
+                ],
+              ),
+            )
           ],
         ),
       ),
