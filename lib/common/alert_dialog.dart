@@ -1,22 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ore_kota/choose_people_page.dart';
+import 'package:ore_kota/answer/answer_page.dart';
 
-class MakePage extends StatelessWidget {
-  const MakePage({Key? key}) : super(key: key);
+class AlertDialog extends StatelessWidget {
+  const AlertDialog({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("makePage"),
+        title: Text("dialog"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Make',
+              'dialog',
             ),
           ],
         ),
@@ -24,7 +24,7 @@ class MakePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => ChoosePeoplePage())
+              MaterialPageRoute(builder: (context) => AnswerPage())
           );
         },
         tooltip: 'Increment',
