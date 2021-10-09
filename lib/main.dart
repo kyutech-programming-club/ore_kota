@@ -1,7 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ore_kota/home_page.dart';
 
-void main() {
+import 'googleSignInMethod.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -40,13 +45,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'Google',
             ),
+            ElevatedButton(
+              onPressed: (){
+                GoogleSignInMethod().googleSignIn();
+              },
+              child: Text("あああ"),)
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => HomePage())
+              MaterialPageRoute(builder: (context) => HomePage())
           );
         },
         tooltip: 'Increment',
