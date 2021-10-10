@@ -33,7 +33,11 @@ class _HomePageState extends State<HomePage> {
       data = docSnapshot.exists ? docSnapshot.data() : null; // `data()`で中身を取り出
     }
 
+
+
+
     getData();
+
     return Scaffold(
       appBar: AppBar(
         title: Text("homePage"),
@@ -72,34 +76,50 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ),
-            Visibility(
-              visible: isShow,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                color: Colors.redAccent,
-                child: Column(
-                  children: [
-                    Text(
-                      "アンケートが届いています",
-                      style: TextStyle(
-                        fontSize: 20,
+            StreamBuilder<QuerySnapshot>(
+
+              //表示したいFiresotreの保存先を指定
+                stream: FirebaseFirestore.instance
+                    .collection('questions')
+                    .snapshots(),
+
+                //streamが更新されるたびに呼ばれる
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                  //データが取れていない時の処理
+                  if (!snapshot.hasData) return const Text('Loading...');
+
+                    return Visibility(
+                      visible: snapshot.data!.docs[1]["judge"] == false ? true : false,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        color: Colors.redAccent,
+                        child: Column(
+                          children: [
+                            Text(
+                              "アンケートが届いています",
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 40),
+                              child: CustomButton(text: "回答する", onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(builder: (context) => AnswerPage()),
+                                );
+                              },),
+                            ),
+                          ],
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 40),
-                      child: CustomButton(text: "回答する", onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => AnswerPage()),
-                        );
-                      },),
-                    ),
-                  ],
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                ),
-              ),
-            ),
+                    );
+                  }
+            )
           ],
         ),
       ),
