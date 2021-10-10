@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ore_kota/answer/answer_page.dart';
 import 'package:ore_kota/common/custom_button.dart';
+import 'package:ore_kota/firebase/googleSignInMethod.dart';
 import 'package:ore_kota/home/component/question.dart';
 import 'package:ore_kota/make/make_page.dart';
 
@@ -38,32 +39,32 @@ class _HomePageState extends State<HomePage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-            StreamBuilder<QuerySnapshot>(
+                StreamBuilder<QuerySnapshot>(
 
-              //表示したいFiresotreの保存先を指定
-                stream: FirebaseFirestore.instance
-                    .collection('questions')
-                    .snapshots(),
+                  //表示したいFiresotreの保存先を指定
+                    stream: FirebaseFirestore.instance
+                        .collection('questions')
+                        .snapshots(),
 
-                //streamが更新されるたびに呼ばれる
-                builder: (BuildContext context,
-                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                    //streamが更新されるたびに呼ばれる
+                    builder: (BuildContext context,
+                        AsyncSnapshot<QuerySnapshot> snapshot) {
 
-                  //データが取れていない時の処理
-                  if (!snapshot.hasData) return const Text('Loading...');
+                      //データが取れていない時の処理
+                      if (!snapshot.hasData) return const Text('Loading...');
 
-                  if(snapshot.data!.docs[0]['user_id'] == GoogleSignInMethod().currentUser!.uid){
-                    return Question(
-                        questionName: snapshot.data!.docs[0]['title'],
-                        peopleNumber: 3,
-                        description: snapshot.data!.docs[0]['description']
-                    );
-                  }else{
-                    return Container();
-                  }
-                }
+                      if(snapshot.data!.docs[0]['user_id'] == GoogleSignInMethod().currentUser!.uid){
+                        return Question(
+                            questionName: snapshot.data!.docs[0]['title'],
+                            peopleNumber: 3,
+                            description: snapshot.data!.docs[0]['description']
+                        );
+                      }else{
+                        return Container();
+                      }
+                    }
+                )
               ],
-              ),
             ),
             Visibility(
               visible: isShow,
@@ -81,7 +82,11 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 40),
-                      child: CustomButton(text: "回答する"),
+                      child: CustomButton(text: "回答する", onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => AnswerPage()),
+                        );
+                      },),
                     ),
                   ],
                   crossAxisAlignment: CrossAxisAlignment.center,
