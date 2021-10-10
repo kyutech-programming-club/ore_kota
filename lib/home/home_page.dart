@@ -45,11 +45,15 @@ class HomePage extends StatelessWidget {
                   //データが取れていない時の処理
                   if (!snapshot.hasData) return const Text('Loading...');
 
-                  return Question(
-                      questionName: snapshot.data!.docs[0]['title'],
-                      peopleNumber: 3,
-                      description: snapshot.data!.docs[0]['description']
-                  );
+                  if(snapshot.data!.docs[0]['user_id'] == GoogleSignInMethod().currentUser!.uid){
+                    return Question(
+                        questionName: snapshot.data!.docs[0]['title'],
+                        peopleNumber: 3,
+                        description: snapshot.data!.docs[0]['description']
+                    );
+                  }else{
+                    return Container();
+                  }
                 }
             ),
             ElevatedButton(
