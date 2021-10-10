@@ -18,4 +18,11 @@ class UserInfo{
 
     return docSnapshot;
   }
+
+  Future<String> getDatas(String collection, String documentId,String field) async {
+    DocumentSnapshot docSnapshot =
+    await FirebaseFirestore.instance.collection(collection).doc(documentId).get();
+    Map<String, dynamic> record = docSnapshot.data as Map<String, dynamic>;
+    return record[field];
+  }
 }

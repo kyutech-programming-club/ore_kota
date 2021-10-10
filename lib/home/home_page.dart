@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ore_kota/common/custom_button.dart';
@@ -15,6 +17,16 @@ class _HomePageState extends State<HomePage> {
   bool isShow = false;
   @override
   Widget build(BuildContext context) {
+    dynamic data;
+    List<bool> isChecked = [false, false, false, false, false, false, false];
+
+    void getData() async{
+      final docRef = FirebaseFirestore.instance.collection("questions").doc(); // DocumentReference
+      final docSnapshot = await docRef.get(); // DocumentSnapshot
+      data = docSnapshot.exists ? docSnapshot.data() : null; // `data()`で中身を取り出
+    }
+
+    getData();
     return Scaffold(
       appBar: AppBar(
         title: Text("homePage"),
@@ -26,18 +38,32 @@ class _HomePageState extends State<HomePage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Question(
-                    questionName: "日程の調整",
-                    peopleNumber: 3,
-                    description: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    print("aaa");
-                  },
-                  child: Text("dialog"),
-                ),
+            StreamBuilder<QuerySnapshot>(
+
+              //表示したいFiresotreの保存先を指定
+                stream: FirebaseFirestore.instance
+                    .collection('questions')
+                    .snapshots(),
+
+                //streamが更新されるたびに呼ばれる
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                  //データが取れていない時の処理
+                  if (!snapshot.hasData) return const Text('Loading...');
+
+                  if(snapshot.data!.docs[0]['user_id'] == GoogleSignInMethod().currentUser!.uid){
+                    return Question(
+                        questionName: snapshot.data!.docs[0]['title'],
+                        peopleNumber: 3,
+                        description: snapshot.data!.docs[0]['description']
+                    );
+                  }else{
+                    return Container();
+                  }
+                }
               ],
+              ),
             ),
             Visibility(
               visible: isShow,
@@ -69,7 +95,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => MakePage())
+              MaterialPageRoute(builder: (context) => MakePage(isChecked))
           );
         },
         tooltip: 'Increment',
