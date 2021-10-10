@@ -29,106 +29,108 @@ class _AnswerPageState extends State<AnswerPage> {
       body: ChangeNotifierProvider<VibrateModel>(
         create: (_) => VibrateModel()..startVibrate(),
         child: Padding(
-        padding: EdgeInsets.only(left: 8, right: 16, bottom: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: 32),
-            Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Column(
+          padding: EdgeInsets.only(left: 8, right: 16, bottom: 16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: 32),
+              Padding(
+                padding: EdgeInsets.only(left: 8),
+                child: Column(
+                  children: [
+                    Text(
+                      'タイトル',
+                      style: TextStyle(
+                        fontSize: 32,
+                        color: HexColor(TextMain),
+                      ),
+                    ),
+                    Text(
+                      "作成者：maker",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: HexColor(TextSub),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "description",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: HexColor(TextSub),
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      "人が回答",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: HexColor(TextSub),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 16),
+              Row(
                 children: [
-                  Text(
-                    'タイトル',
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: HexColor(TextMain),
-                    ),
+                  Checkbox(
+                    value: isChecked1,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked1 = value!;
+                      });
+                    },
                   ),
-                  Text(
-                    "作成者：maker",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: HexColor(TextSub),
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    "description",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: HexColor(TextSub),
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    "人が回答",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: HexColor(TextSub),
-                    ),
-                  ),
+                  QuestionRow(choice: "選択肢", number: "32"),
                 ],
               ),
-            ),
-            SizedBox(height: 16),
-            Row(
-              children: [
-                Checkbox(
-                  value: isChecked1,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked1 = value!;
-                    });
-                  },
-                ),
-                QuestionRow(choice: "選択肢", number: "32"),
-              ],
-            ),
-            SizedBox(height: 16),
-            Row(
-              children: [
-                Checkbox(
-                  value: isChecked2,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked2 = value!;
-                    });
-                  },
-                ),
-                QuestionRow(choice: "選択肢", number: "32"),
-              ],
-            ),
-            SizedBox(height: 16),
-            Row(
-              children: [
-                Checkbox(
-                  value: isChecked3,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked3 = value!;
-                    });
-                  },
-                ),
-                QuestionRow(choice: "選択肢", number: "32"),
-              ],
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+              SizedBox(height: 16),
+              Row(
                 children: [
-                  Consumer<VibrateModel>(builder: (context, model, child) {
-                    return CustomButton(
-                      onTap: () {
-                        model.stopVibrate();
-                      },
-                      text: "送信",
-                    );
-                  },
+                  Checkbox(
+                    value: isChecked2,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked2 = value!;
+                      });
+                    },
+                  ),
+                  QuestionRow(choice: "選択肢", number: "32"),
                 ],
               ),
-            )
-          ],
+              SizedBox(height: 16),
+              Row(
+                children: [
+                  Checkbox(
+                    value: isChecked3,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked3 = value!;
+                      });
+                    },
+                  ),
+                  QuestionRow(choice: "選択肢", number: "32"),
+                ],
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Consumer<VibrateModel>(builder: (context, model, child) {
+                      return CustomButton(
+                        onTap: () {
+                          model.stopVibrate();
+                        },
+                        text: "送信",
+                      );
+                    },
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
