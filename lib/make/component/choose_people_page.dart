@@ -76,7 +76,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Image.network(
-                      GoogleSignInMethod().currentUser!.photoURL!,
+                      "https://avatars.githubusercontent.com/u/50654077?v=4",
                       width: 30,
                       height: 30,
                       fit: BoxFit.fill,
@@ -85,7 +85,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 35),
-                  child: Text(GoogleSignInMethod().currentUser!.displayName!),
+                  child: Text("みき"),
                 )
               ],
             ),
@@ -106,7 +106,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Image.network(
-                      GoogleSignInMethod().currentUser!.photoURL!,
+                      "https://avatars.githubusercontent.com/u/39556764?v=4",
                       width: 30,
                       height: 30,
                       fit: BoxFit.fill,
@@ -115,7 +115,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 35),
-                  child: Text(GoogleSignInMethod().currentUser!.displayName!),
+                  child: Text("わたる"),
                 )
               ],
             ),
@@ -136,7 +136,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Image.network(
-                      GoogleSignInMethod().currentUser!.photoURL!,
+                      "https://lh3.googleusercontent.com/ogw/ADea4I4CeGEhq1wHQ-ZAdj8-9xTBNZMVauyMDkaDXqdh8g=s64-c-mo",
                       width: 30,
                       height: 30,
                       fit: BoxFit.fill,
@@ -145,7 +145,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 35),
-                  child: Text(GoogleSignInMethod().currentUser!.displayName!),
+                  child: Text("ふくだ"),
                 )
               ],
             ),
@@ -166,7 +166,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Image.network(
-                      GoogleSignInMethod().currentUser!.photoURL!,
+                      "https://i0.wp.com/www.naru-web.com/wp11/wp-content/uploads/2018/09/2018-09-21_173005.jpg?resize=350%2C350&ssl=1",
                       width: 30,
                       height: 30,
                       fit: BoxFit.fill,
@@ -175,7 +175,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 35),
-                  child: Text(GoogleSignInMethod().currentUser!.displayName!),
+                  child: Text("だるま"),
                 )
               ],
             ),
@@ -196,7 +196,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Image.network(
-                      GoogleSignInMethod().currentUser!.photoURL!,
+                      "http://3.bp.blogspot.com/-qDc5kIFIhb8/UoJEpGN9DmI/AAAAAAABl1s/BfP6FcBY1R8/s1600/BlueHead.jpg",
                       width: 30,
                       height: 30,
                       fit: BoxFit.fill,
@@ -205,7 +205,7 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 35),
-                  child: Text(GoogleSignInMethod().currentUser!.displayName!),
+                  child: Text("おほあり"),
                 )
               ],
             ),
