@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ore_kota/answer/model/vibrate_model.dart';
@@ -22,6 +23,9 @@ class _AnswerPageState extends State<AnswerPage> {
 
   @override
   Widget build(BuildContext context) {
+    String choice1;
+    String choice2;
+    String choice3;
     return  Scaffold(
       appBar: AppBar(
         title: Text("answer"),
@@ -38,12 +42,27 @@ class _AnswerPageState extends State<AnswerPage> {
                 padding: EdgeInsets.only(left: 8),
                 child: Column(
                   children: [
-                    Text(
-                      'タイトル',
-                      style: TextStyle(
-                        fontSize: 32,
-                        color: HexColor(TextMain),
-                      ),
+                    StreamBuilder<QuerySnapshot>(
+
+                      //表示したいFiresotreの保存先を指定
+                        stream: FirebaseFirestore.instance
+                            .collection('questions')
+                            .snapshots(),
+
+                        //streamが更新されるたびに呼ばれる
+                        builder: (BuildContext context,
+                            AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                          //データが取れていない時の処理
+                          if (!snapshot.hasData) return const Text('Loading...');
+                          return Text(
+                            snapshot.data!.docs[1]['title'],
+                            style: TextStyle(
+                              fontSize: 32,
+                              color: HexColor(TextSub),
+                            ),
+                          );
+                        }
                     ),
                     Text(
                       "作成者：maker",
@@ -53,12 +72,27 @@ class _AnswerPageState extends State<AnswerPage> {
                       ),
                     ),
                     SizedBox(height: 8),
-                    Text(
-                      "description",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: HexColor(TextSub),
-                      ),
+                    StreamBuilder<QuerySnapshot>(
+
+                      //表示したいFiresotreの保存先を指定
+                        stream: FirebaseFirestore.instance
+                            .collection('questions')
+                            .snapshots(),
+
+                        //streamが更新されるたびに呼ばれる
+                        builder: (BuildContext context,
+                            AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                          //データが取れていない時の処理
+                          if (!snapshot.hasData) return const Text('Loading...');
+                          return Text(
+                            snapshot.data!.docs[1]['description'],
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: HexColor(TextSub),
+                            ),
+                          );
+                        }
                     ),
                     SizedBox(height: 16),
                     Text(
@@ -82,7 +116,22 @@ class _AnswerPageState extends State<AnswerPage> {
                       });
                     },
                   ),
-                  QuestionRow(choice: "選択肢", number: "32"),
+                  StreamBuilder<QuerySnapshot>(
+
+                    //表示したいFiresotreの保存先を指定
+                      stream: FirebaseFirestore.instance
+                          .collection('questions')
+                          .snapshots(),
+
+                      //streamが更新されるたびに呼ばれる
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                        //データが取れていない時の処理
+                        if (!snapshot.hasData) return const Text('Loading...');
+                        return QuestionRow(choice: snapshot.data!.docs[1]['choiceq'], number: "3");
+                      }
+                  ),
                 ],
               ),
               SizedBox(height: 16),
@@ -96,7 +145,22 @@ class _AnswerPageState extends State<AnswerPage> {
                       });
                     },
                   ),
-                  QuestionRow(choice: "選択肢", number: "32"),
+                  StreamBuilder<QuerySnapshot>(
+
+                    //表示したいFiresotreの保存先を指定
+                      stream: FirebaseFirestore.instance
+                          .collection('questions')
+                          .snapshots(),
+
+                      //streamが更新されるたびに呼ばれる
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                        //データが取れていない時の処理
+                        if (!snapshot.hasData) return const Text('Loading...');
+                        return QuestionRow(choice: snapshot.data!.docs[1]['choicew'], number: "3");
+                      }
+                  ),
                 ],
               ),
               SizedBox(height: 16),
@@ -110,7 +174,22 @@ class _AnswerPageState extends State<AnswerPage> {
                       });
                     },
                   ),
-                  QuestionRow(choice: "選択肢", number: "32"),
+                  StreamBuilder<QuerySnapshot>(
+
+                    //表示したいFiresotreの保存先を指定
+                      stream: FirebaseFirestore.instance
+                          .collection('questions')
+                          .snapshots(),
+
+                      //streamが更新されるたびに呼ばれる
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                        //データが取れていない時の処理
+                        if (!snapshot.hasData) return const Text('Loading...');
+                        return QuestionRow(choice: snapshot.data!.docs[1]['choicee'], number: "3");
+                      }
+                  ),
                 ],
               ),
               Expanded(

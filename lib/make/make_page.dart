@@ -8,21 +8,41 @@ import 'package:ore_kota/make/component/choose_people_page.dart';
 
 class MakePage extends StatefulWidget {
 
-  MakePage(this.isChecked);
+  MakePage(this.isChecked, this.a, this.b, this.c, this.d, this.e);
   List<bool> isChecked = [false, false, false, false, false, false, false];
+  String a;
+  String b;
+  String c;
+  String d;
+  String e;
 
   @override
-  _MakePageState createState() => _MakePageState(this.isChecked);
+  _MakePageState createState() => _MakePageState(this.isChecked, this.a, this.b, this.c, this.d, this.e);
 }
 
 class _MakePageState extends State<MakePage> {
-  _MakePageState(this.isChecked);
+  _MakePageState(this.isChecked, this.a, this.b, this.c, this.d, this.e);
   List<bool> isChecked = [false, false, false, false, false, false, false];
-  final myController1 = TextEditingController();
-  final myController2 = TextEditingController();
-  final myController3 = TextEditingController();
-  final myController4 = TextEditingController();
-  final myController5 = TextEditingController();
+  var myController1 = TextEditingController();
+  var myController2 = TextEditingController();
+  var myController3 = TextEditingController();
+  var myController4 = TextEditingController();
+  var myController5 = TextEditingController();
+  String a;
+  String b;
+  String c;
+  String d;
+  String e;
+
+  @override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+    myController1.text = a;
+    myController2.text = b;
+    myController3.text = c;
+    myController4.text = d;
+    myController5.text = e;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +55,16 @@ class _MakePageState extends State<MakePage> {
         'title' : myController1.text,
         'description' : myController2.text,
         'user_id' : GoogleSignInMethod().currentUser!.uid,
-        'choice.1' : myController3.text,
-        'choice.2' : myController4.text,
-        'choice.3' : myController5.text,
+        'choiceq' : myController3.text,
+        'choicew' : myController4.text,
+        'choicee' : myController5.text,
       });
     }
+    myController1.text = a;
+    myController2.text = b;
+    myController3.text = c;
+    myController4.text = d;
+    myController5.text = e;
 
     return Scaffold(
       appBar: AppBar(
@@ -100,7 +125,7 @@ class _MakePageState extends State<MakePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => ChoosePeoplePage())
+              MaterialPageRoute(builder: (context) => ChoosePeoplePage(myController1.text, myController2.text, myController3.text, myController4.text, myController5.text))
           );
         },
         tooltip: 'Increment',
