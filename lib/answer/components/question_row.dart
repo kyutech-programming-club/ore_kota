@@ -17,7 +17,7 @@ class QuestionRow extends StatelessWidget {
               choice,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 16,
               color: HexColor(TextMain),
             ),
           ),

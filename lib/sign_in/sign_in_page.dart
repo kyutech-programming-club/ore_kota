@@ -36,23 +36,17 @@ class SignInPage extends StatelessWidget {
               SignInButton(
                 Buttons.Google,
                 text: "Sign up with Google",
-                onPressed: () {
-                  GoogleSignInMethod().googleSignIn();
+                onPressed: () async{
+                  await GoogleSignInMethod().googleSignIn();
                   UserInfo().setInfo();
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => HomePage())
+                  );
                 },
               ),
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => HomePage())
-          );
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }

@@ -20,6 +20,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     dynamic data;
     List<bool> isChecked = [false, false, false, false, false, false, false];
+    String a = "";
+    String b = "";
+    String c = "";
+    String d = "";
+    String e = "";
 
     void getData() async{
       final docRef = FirebaseFirestore.instance.collection("questions").doc(); // DocumentReference
@@ -98,9 +103,11 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: HexColor("#FFC86F"),
         onPressed: () {
+          print(GoogleSignInMethod().currentUser!.photoURL);
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => MakePage(isChecked))
+              MaterialPageRoute(builder: (context) => MakePage(isChecked, a, b, c, d, e))
           );
         },
         tooltip: 'Increment',

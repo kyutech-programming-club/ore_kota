@@ -5,11 +5,23 @@ import 'package:ore_kota/firebase/googleSignInMethod.dart';
 import 'package:ore_kota/make/make_page.dart';
 
 class ChoosePeoplePage extends StatefulWidget {
+  ChoosePeoplePage(this.a, this.b, this.c, this.d, this.e);
+  String a;
+  String b;
+  String c;
+  String d;
+  String e;
   @override
-  _ChoosePeoplePageState createState() => _ChoosePeoplePageState();
+  _ChoosePeoplePageState createState() => _ChoosePeoplePageState(a, b, c, d, e);
 }
 
 class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
+  _ChoosePeoplePageState(this.a, this.b, this.c, this.d, this.e);
+  String a;
+  String b;
+  String c;
+  String d;
+  String e;
   static const _alignments = [
     Alignment.topLeft,
     Alignment.topRight,
@@ -197,71 +209,11 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
                 )
               ],
             ),
-            Row(
-              children: [
-                Checkbox(
-                  checkColor: Colors.white,
-                  fillColor: MaterialStateProperty.resolveWith(getColor),
-                  value: isChecked[5],
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked[5] = value!;
-                    });
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(
-                      GoogleSignInMethod().currentUser!.photoURL!,
-                      width: 30,
-                      height: 30,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 35),
-                  child: Text(GoogleSignInMethod().currentUser!.displayName!),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                Checkbox(
-                  checkColor: Colors.white,
-                  fillColor: MaterialStateProperty.resolveWith(getColor),
-                  value: isChecked[6],
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked[6] = value!;
-                    });
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(
-                      GoogleSignInMethod().currentUser!.photoURL!,
-                      width: 30,
-                      height: 30,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 35),
-                  child: Text(GoogleSignInMethod().currentUser!.displayName!),
-                )
-              ],
-            ),
             Padding(
               padding: const EdgeInsets.only(top: 90),
               child: CustomButton(text: "確定", onTap: (){
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => MakePage(isChecked))
+                    MaterialPageRoute(builder: (context) => MakePage(isChecked, a, b, c, d, e))
                 );
               },
               ),
