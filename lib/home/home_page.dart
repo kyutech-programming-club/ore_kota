@@ -13,6 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     dynamic data;
+    List<bool> isChecked = [false, false, false, false, false, false, false];
 
     void getData() async{
       final docRef = FirebaseFirestore.instance.collection("questions").doc(); // DocumentReference
@@ -65,7 +66,7 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => MakePage())
+              MaterialPageRoute(builder: (context) => MakePage(isChecked))
           );
         },
         tooltip: 'Increment',

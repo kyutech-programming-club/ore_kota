@@ -7,13 +7,17 @@ import 'package:ore_kota/make/component/choice.dart';
 import 'package:ore_kota/make/component/choose_people_page.dart';
 
 class MakePage extends StatefulWidget {
-  const MakePage({Key? key}) : super(key: key);
+
+  MakePage(this.isChecked);
+  List<bool> isChecked = [false, false, false, false, false, false, false];
 
   @override
-  _MakePageState createState() => _MakePageState();
+  _MakePageState createState() => _MakePageState(this.isChecked);
 }
 
 class _MakePageState extends State<MakePage> {
+  _MakePageState(this.isChecked);
+  List<bool> isChecked = [false, false, false, false, false, false, false];
   final myController1 = TextEditingController();
   final myController2 = TextEditingController();
   final myController3 = TextEditingController();
@@ -82,7 +86,10 @@ class _MakePageState extends State<MakePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  CustomButton(text: "作成", onTap: onTap,),
+                  CustomButton(text: "作成", onTap: (){
+                    onTap();
+                    print(isChecked);
+                  },),
                   SizedBox(height: 16),
                 ],
               ),
