@@ -31,7 +31,7 @@ class _AnswerPageState extends State<AnswerPage> {
           children: <Widget>[
             SizedBox(height: 32),
             Padding(
-                padding: EdgeInsets.only(left: 8),
+              padding: EdgeInsets.only(left: 8),
               child: Column(
                 children: [
                   Text(
@@ -113,7 +113,10 @@ class _AnswerPageState extends State<AnswerPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  CustomButton(text: "送信"),
+                  CustomButton(
+                    onTap: () {},
+                    text: "送信",
+                  ),
                 ],
               ),
             )
