@@ -60,6 +60,7 @@ class _MakePageState extends State<MakePage> {
         'choiceq' : myController3.text,
         'choicew' : myController4.text,
         'choicee' : myController5.text,
+        'judge' : false,
       });
     }
     myController1.text = a;
