@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ore_kota/common/custom_button.dart';
 import 'package:ore_kota/firebase/googleSignInMethod.dart';
+import 'package:ore_kota/make/make_page.dart';
 
 class ChoosePeoplePage extends StatefulWidget {
   @override
@@ -259,7 +260,9 @@ class _ChoosePeoplePageState extends State<ChoosePeoplePage> {
             Padding(
               padding: const EdgeInsets.only(top: 90),
               child: CustomButton(text: "確定", onTap: (){
-
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => MakePage(isChecked))
+                );
               },
               ),
             )
