@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:ore_kota/common/custom_button.dart';
 import 'package:ore_kota/firebase/googleSignInMethod.dart';
+import 'package:ore_kota/home/home_page.dart';
 import 'package:ore_kota/make/component/choice.dart';
 import 'package:ore_kota/make/component/choose_people_page.dart';
 
@@ -113,7 +115,9 @@ class _MakePageState extends State<MakePage> {
                 children: [
                   CustomButton(text: "作成", onTap: (){
                     onTap();
-                    print(isChecked);
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomePage())
+                    );
                   },),
                   SizedBox(height: 16),
                 ],
@@ -123,13 +127,14 @@ class _MakePageState extends State<MakePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: HexColor("#FFC86F"),
         onPressed: () {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => ChoosePeoplePage(myController1.text, myController2.text, myController3.text, myController4.text, myController5.text))
           );
         },
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(Icons.wc),
       ),
     );
   }

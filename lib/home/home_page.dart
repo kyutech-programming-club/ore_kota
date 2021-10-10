@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:ore_kota/firebase/googleSignInMethod.dart';
 import 'package:ore_kota/home/component/question.dart';
 import 'package:ore_kota/make/make_page.dart';
@@ -61,19 +62,21 @@ class HomePage extends StatelessWidget {
                   }
                 }
             ),
-            ElevatedButton(
+            /*ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => AnswerPage()),
                 );
               },
               child: Text("answer"),
-            ),
+            ),*/
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: HexColor("#FFC86F"),
         onPressed: () {
+          print(GoogleSignInMethod().currentUser!.photoURL);
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => MakePage(isChecked, a, b, c, d, e))
           );

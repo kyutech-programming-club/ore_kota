@@ -212,13 +212,6 @@ class _AnswerPageState extends State<AnswerPage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Vibration.vibrate(duration: 5000, amplitude: 255);
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
     );
   }
 }
